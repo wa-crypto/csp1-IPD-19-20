@@ -10,7 +10,6 @@ team_name = 'DrunkPig$s' # Only 10 chars displayed.
 strategy_name = 'Collude first 20 rounds then based on opponents history decide what to do'
 strategy_description = 'Collude first 20 rounds. Then if the opponenet has betrayed once during the 20 turns, check every move and retaliate based on their moves.'
      
-def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
     
@@ -27,19 +26,18 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    return 'c'
 
-def move_2(my_history, their_history, my_score, their_score):
+def move_1(my_history, their_history, my_score, their_score):
   #Collude all the time till the 20th round
   if len(their_history)!=20:
     return c
   # If the betrayed in first 20 rounds, betray them
   if len(their_history)==20:
-    if 'b' in their_history :
+    if 'b' in their_history:
       return 'b'
       #After turn 20, check eery move and either retaliate or keep colluding.
       if len(their_history)>20:
-        if their_history[-1]=='b'
+        if their_history[-1]=='b':
           return 'b'
         else:
           return 'c'
@@ -47,9 +45,26 @@ def move_2(my_history, their_history, my_score, their_score):
     else:
       return 'c'
       if my_history==100:
-        if their_history[-1]=='b'
+        if their_history[-1]=='b':
           return 'b'
         else:
           return 'c'
 
-def move_3(my_history, their_history, my_score, their_score):
+"""def move_2(my_history, their_history, my_score, their_score):
+  if my_history !=40:
+    return 'b'
+  if my_history >=40
+    if 'b' in their_history:
+      if their_history[-1]=='b':
+        return 'b'
+      else:
+        return 'c'
+"""
+"""def move_3(my_history, their_history, my_score, their_score):
+    count=0
+    if my_history==100:
+      for move in their_history:
+        if 'b' in their_history:
+          count+=1
+
+"""
